@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>betmgm · 信息查询与场景对照手册</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background-color: #f4f5f7;
+      color: #1e1f2b;
+      line-height: 1.6;
+      padding: 2rem 1.25rem;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    .top-nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 0.8rem 2rem;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02), 0 6px 16px rgba(0, 0, 0, 0.02);
+      border: 1px solid #e7e9ed;
+      margin-bottom: 2.8rem;
+    }
+
+    .nav-brand {
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.3px;
+      color: #1e1f2b;
+      background: #f0f2f5;
+      padding: 0.25rem 1rem;
+      border-radius: 40px;
+      border: 1px solid #dadce0;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #3b3d4a;
+      transition: color 0.15s;
+      font-weight: 450;
+    }
+
+    .nav-links a:hover {
+      color: #0b0c12;
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .nav-links .highlight-link {
+      color: #1e2b4f;
+      font-weight: 500;
+      background: #eff2f9;
+      padding: 0.1rem 0.8rem;
+      border-radius: 28px;
+    }
+
+    /* hero 简介 */
+    .hero-section {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2.8rem 2.5rem 2.5rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02), 0 8px 28px rgba(0, 0, 0, 0.02);
+      border: 1px solid #ecedf0;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-section h1 {
+      font-size: 2.2rem;
+      font-weight: 500;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+      color: #14161f;
+      line-height: 1.2;
+    }
+
+    .hero-section p {
+      max-width: 700px;
+      color: #343642;
+      font-size: 1.04rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .hero-section .intro-link-sentence {
+      margin-top: 1.2rem;
+      background: #f6f8fb;
+      padding: 0.9rem 1.5rem;
+      border-radius: 60px;
+      display: inline-block;
+      border: 1px solid #dadde3;
+      font-size: 0.98rem;
+    }
+
+    .intro-link-sentence a {
+      color: #1a1e30;
+      text-decoration: none;
+      font-weight: 550;
+      border-bottom: 1px dashed #7b7f8c;
+    }
+
+    .intro-link-sentence a:hover {
+      border-bottom: 1px solid #0b0c12;
+    }
+
+    /* 三个场景卡片区 */
+    .scenes-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.8rem;
+      margin-bottom: 2.8rem;
+    }
+
+    .scene-card {
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 1.8rem 1.6rem;
+      border: 1px solid #e4e6ea;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01), 0 6px 18px rgba(0, 0, 0, 0.02);
+      transition: box-shadow 0.2s;
+    }
+
+    .scene-card:hover {
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04), 0 12px 28px rgba(0, 0, 0, 0.03);
+    }
+
+    .scene-card h3 {
+      font-weight: 500;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #f0f1f5;
+      letter-spacing: -0.01em;
+    }
+
+    .scene-card p {
+      color: #313340;
+      font-size: 0.95rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .scene-card .sub-detail {
+      background: #f6f8fa;
+      border-radius: 20px;
+      padding: 0.7rem 1rem;
+      font-size: 0.88rem;
+      border-left: 4px solid #d0d4dd;
+      margin-top: 0.8rem;
+      color: #252734;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-summary {
+      background: #ffffff;
+      border-radius: 28px;
+      padding: 2rem 2.5rem;
+      border: 1px solid #e4e7ec;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.01);
+      margin-bottom: 2.5rem;
+    }
+
+    .faq-summary h2 {
+      font-weight: 470;
+      font-size: 1.5rem;
+      letter-spacing: -0.01em;
+      margin-bottom: 1.6rem;
+      color: #181a26;
+    }
+
+    .faq-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #edf0f4;
+    }
+
+    .faq-item:last-of-type {
+      border-bottom: none;
+    }
+
+    .faq-item strong {
+      font-weight: 550;
+      color: #1d212e;
+      display: block;
+      margin-bottom: 0.2rem;
+    }
+
+    .faq-item p {
+      color: #3d3f4d;
+      font-size: 0.95rem;
+      margin-top: 0.05rem;
+    }
+
+    .faq-note {
+      margin-top: 1.2rem;
+      font-size: 0.9rem;
+      background: #f2f4f8;
+      padding: 0.9rem 1.2rem;
+      border-radius: 40px;
+      color: #2b2d39;
+      border: 1px solid #dadde3;
+    }
+
+    .faq-note a {
+      color: #14161f;
+      font-weight: 500;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      text-decoration-color: #a8adb8;
+    }
+
+    .faq-note a:hover {
+      text-decoration-color: #14161f;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      text-align: left;
+      font-size: 0.8rem;
+      color: #5c5e6b;
+      border-top: 1px solid #dde0e6;
+      padding-top: 1.8rem;
+      margin-top: 0.8rem;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .footer-note a {
+      color: #3d3f52;
+      text-decoration: none;
+      border-bottom: 1px dotted #b3b7c2;
+    }
+
+    .footer-note a:hover {
+      border-bottom: 1px solid #1e1f2b;
+    }
+
+    /* 响应式 */
+    @media (max-width: 860px) {
+      .scenes-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 620px) {
+      body {
+        padding: 1.2rem 0.8rem;
+      }
+
+      .top-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.6rem;
+        padding: 1rem 1.2rem;
+      }
+
+      .nav-links {
+        flex-wrap: wrap;
+        gap: 1rem 1.2rem;
+      }
+
+      .hero-section {
+        padding: 1.8rem 1.2rem;
+      }
+
+      .hero-section h1 {
+        font-size: 1.6rem;
+      }
+
+      .scenes-grid {
+        grid-template-columns: 1fr;
+        gap: 1.2rem;
+      }
+
+      .faq-summary {
+        padding: 1.4rem 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+  <!-- 导航 -->
+  <nav class="top-nav">
+    <span class="nav-brand">📋 参考手册</span>
+    <div class="nav-links">
+      <a href="#intro">概述</a>
+      <a href="#scenes">场景</a>
+      <a href="#faq">说明</a>
+      <a href="https://portal-betmgm.com" class="highlight-link">betmgm</a>
+    </div>
+  </nav>
+
+  <!-- hero / 核心介绍 -->
+  <section class="hero-section" id="intro">
+    <h1>日常查询 · 对照与延伸</h1>
+    <p>
+      在信息检索、功能对照或配置参考时，一个条理清晰的入口能大幅减少重复切换。本页围绕轻量导航的方式，整理了三类常见的使用场景，方便快速定位和比较。所有内容均基于公开资料和常规操作逻辑编写。
+    </p>
+    <p>
+      如果你需要一个集中的起点来查阅相关结构或功能说明，可直接通过下方链接进入对应平台。例如，<span class="intro-link-sentence">你可以从 <a href="https://portal-betmgm.com">betmgm</a> 了解模块排列与常用路径。</span>
+    </p>
+    <p style="margin-top:0.8rem; font-size:0.9rem; color:#4d4f5d;">
+      * 页面不保存任何用户凭证，仅作为信息对照参考。
+    </p>
+  </section>
+
+  <!-- 三个场景模块 -->
+  <div class="scenes-grid" id="scenes">
+    <div class="scene-card">
+      <h3>🔍 信息对照</h3>
+      <p>当需要同时查看不同条目下的状态、分类或描述时，可利用卡片和模块分区快速比对。建议将常用类别固定为独立标签，减少反复跳转。</p>
+      <div class="sub-detail">典型做法：在侧栏开启对照视图，保留两个条目并列显示。</div>
+    </div>
+    <div class="scene-card">
+      <h3>📂 分类延伸</h3>
+      <p>遇到不熟悉的术语或分组，可借助归类标签和索引链接进行延伸阅读。多数平台会提供“相关区域”或“类似条目”，适合逐步扩展知识边界。</p>
+      <div class="sub-detail">适用情况：从单一查询点扩展到同类别下其他条目。</div>
+    </div>
+    <div class="scene-card">
+      <h3>⚙️ 配置参考</h3>
+      <p>调整偏好、通知或账户设置时，建议先通过概览页面了解各模块的功能划分。对照不同选项的描述，可以更准确地找到所需配置项。</p>
+      <div class="sub-detail">提示：调整前可截取当前设置作为备份对照。</div>
+    </div>
+  </div>
+
+  <!-- 常见说明 (FAQ 摘要) -->
+  <section class="faq-summary" id="faq">
+    <h2>常见说明 · 快速参考</h2>
+    <div class="faq-item">
+      <strong>◈ 如何找到某个功能的位置？</strong>
+      <p>大多数平台会将主要功能归入顶部导航或侧栏。如果不确定，可以先查看“所有分类”或“索引”页面，再通过关键词定位。</p>
+    </div>
+    <div class="faq-item">
+      <strong>◈ 对照阅读时需要注意什么？</strong>
+      <p>留意不同栏目的版本标识或更新时间。部分描述可能因配置差异而略有不同，建议以实际页面显示为准。</p>
+    </div>
+    <div class="faq-item">
+      <strong>◈ 延伸阅读的边界如何把握？</strong>
+      <p>从当前条目出发，优先阅读关联度最高的两到三个链接。避免一次打开过多标签，以免信息过载。可收藏有疑点的页面后续再读。</p>
+    </div>
+    <div class="faq-note">
+      💡 需要直接查看主界面？通过 <a href="https://portal-betmgm.com">betmgm</a> 可快速抵达集中操作台。建议首次使用时先花几分钟浏览各区块标题。
+    </div>
+  </section>
+
+  <!-- 页脚简注 -->
+  <div class="footer-note">
+    <span>内容整理 · 日常查询与对照</span>
+    <span style="display:flex; gap:0.8rem;">
+      <a href="https://portal-betmgm.com">betmgm</a>
+      <span style="opacity:0.4;">|</span>
+      <span style="color:#7f8190;">仅作参考</span>
+    </span>
+  </div>
+</div>
+</body>
+</html>
